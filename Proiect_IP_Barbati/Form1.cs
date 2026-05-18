@@ -122,16 +122,6 @@ namespace Proiect_IP_Barbati
             playlistToolStripMenuItem.DropDownItems.Add(removeItem);
             playlistToolStripMenuItem.DropDownItems.Add(clearItem);
 
-            // Meniu Help
-            var aboutItem = new ToolStripMenuItem("Despre aplicatie");
-            aboutItem.Click += (s, e) => MessageBox.Show(
-                "MP3 Player v1.0\nProiect Ingineria Programarii\n\n" +
-                "Dublu click pe melodie = redeaza\n" +
-                "Drag & Drop = adauga fisiere\n" +
-                "Bara de progres = seek in melodie",
-                "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            helpToolStripMenuItem.DropDownItems.Add(aboutItem);
-
             // Selectare playlist din listbox
             listBoxPlaylist.SelectedIndexChanged += (s, e) =>
             {
@@ -280,6 +270,7 @@ namespace Proiect_IP_Barbati
 
             int index = listViewSongs.Items.Count + 1;
             var item = new ListViewItem(index.ToString());
+            item.SubItems.Add(song.Title);
             item.SubItems.Add(song.Title);
             item.SubItems.Add(song.Artist ?? "Necunoscut");
             item.SubItems.Add(song.Duration);
